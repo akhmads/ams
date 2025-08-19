@@ -30,7 +30,9 @@ class AssetsTable
                 TextColumn::make('serial_number')
                     ->searchable(),
                 TextColumn::make('description')
-                    ->searchable(),
+                    ->html(true)
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Assets\Schemas;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\RichEditor;
 
 class AssetForm
 {
@@ -14,7 +15,7 @@ class AssetForm
             ->components([
                 TextInput::make('code')
                     ->required()
-                    ->unique(ignoreRecord: false),
+                    ->unique(ignoreRecord: true),
                 TextInput::make('name')
                     ->required(),
                 Select::make('category_id')
@@ -34,7 +35,7 @@ class AssetForm
                     ]),
                 TextInput::make('model'),
                 TextInput::make('serial_number'),
-                TextInput::make('description'),
+                RichEditor::make('description'),
             ]);
     }
 }
