@@ -19,7 +19,18 @@ class CreateAsset extends CreateRecord
         ];
     }
 
-    protected function getFormActions(): array
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['brand_id'] = intval($data['brand_id']);
+        return $data;
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('edit', ['record' => $this->getRecord()]);
+    }
+
+    /*protected function getFormActions(): array
     {
         return [
             $this->getCreateFormAction(),
@@ -33,5 +44,5 @@ class CreateAsset extends CreateRecord
                 ->color('gray')
                 ->url(route('filament.admin.resources.assets.index')),
         ];
-    }
+    }*/
 }

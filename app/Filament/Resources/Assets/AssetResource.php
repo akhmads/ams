@@ -2,19 +2,19 @@
 
 namespace App\Filament\Resources\Assets;
 
-use App\Filament\Resources\Assets\Pages\CreateAsset;
-use App\Filament\Resources\Assets\Pages\EditAsset;
-use App\Filament\Resources\Assets\Pages\ListAssets;
-use App\Filament\Resources\Assets\Pages\ViewAsset;
-use App\Filament\Resources\Assets\Schemas\AssetForm;
-use App\Filament\Resources\Assets\Schemas\AssetInfolist;
-use App\Filament\Resources\Assets\Tables\AssetsTable;
-use App\Models\Asset;
 use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use App\Models\Asset;
 use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use App\Filament\Resources\Assets\Pages\EditAsset;
+use App\Filament\Resources\Assets\Pages\ViewAsset;
+use App\Filament\Resources\Assets\Pages\ListAssets;
+use App\Filament\Resources\Assets\Pages\CreateAsset;
+use App\Filament\Resources\Assets\Schemas\AssetForm;
+use App\Filament\Resources\Assets\Tables\AssetsTable;
+use App\Filament\Resources\Assets\Schemas\AssetInfolist;
 
 class AssetResource extends Resource
 {
@@ -42,7 +42,7 @@ class AssetResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\AccesoriesRelationManager::class
         ];
     }
 

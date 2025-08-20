@@ -2,10 +2,11 @@
 
 namespace App\Filament\Resources\Assets\Pages;
 
-use App\Filament\Resources\Assets\AssetResource;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\Assets\AssetResource;
+use Filament\Resources\Pages\Enums\ContentTabPosition;
 
 class EditAsset extends EditRecord
 {
@@ -18,4 +19,9 @@ class EditAsset extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    // public function hasCombinedRelationManagerTabsWithContent(): bool
+    // {
+    //     return true;
+    // }
 }

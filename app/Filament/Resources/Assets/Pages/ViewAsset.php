@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\Assets\Pages;
 
-use App\Filament\Resources\Assets\AssetResource;
+use Filament\Actions\Action;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
+use App\Filament\Resources\Assets\AssetResource;
 
 class ViewAsset extends ViewRecord
 {
@@ -13,7 +14,14 @@ class ViewAsset extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            EditAction::make(),
+            Action::make('back')
+                ->label('Back')
+                ->color('gray')
+                ->icon('heroicon-m-arrow-uturn-left')
+                ->url(route('filament.admin.resources.assets.index')),
+
+            EditAction::make()
+                ->icon('heroicon-m-pencil-square'),
         ];
     }
 }

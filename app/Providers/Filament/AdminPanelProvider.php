@@ -29,6 +29,8 @@ class AdminPanelProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->databaseTransactions()
             ->maxContentWidth(Width::Full)
+            ->favicon(asset('icon/favicon-32x32.png'))
+            ->brandName('AMS')
             ->default()
             ->id('admin')
             ->path('admin')

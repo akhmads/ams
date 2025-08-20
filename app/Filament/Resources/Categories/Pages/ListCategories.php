@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Categories\Pages;
 
-use App\Filament\Resources\Categories\CategoryResource;
 use Filament\Actions\CreateAction;
+use Filament\Actions\ImportAction;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Imports\CategoryImporter;
+use App\Filament\Resources\Categories\CategoryResource;
 
 class ListCategories extends ListRecords
 {
@@ -14,6 +16,8 @@ class ListCategories extends ListRecords
     {
         return [
             CreateAction::make(),
+            ImportAction::make()
+                ->importer(CategoryImporter::class)
         ];
     }
 }
