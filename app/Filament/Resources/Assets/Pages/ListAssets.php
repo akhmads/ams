@@ -16,16 +16,6 @@ class ListAssets extends ListRecords
         return [
             CreateAction::make()
                 ->icon('heroicon-m-plus')
-                // ->label('Create New Asset')
-                // ->mutateDataUsing(function (array $data): array {
-                //     dd('tes');
-                //     $data['brand_id'] = intval($data['brand_id']);
-                //     return $data;
-                // })
-                // ->successRedirectUrl(route('filament.admin.resources.assets.index'))
-                // ->successRedirectUrl(fn (Model $record): string => route('filament.admin.resources.assets.edit', [
-                //     'asset' => $record,
-                // ])),
         ];
     }
 }

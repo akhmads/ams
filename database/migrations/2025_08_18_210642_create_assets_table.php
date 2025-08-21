@@ -17,11 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('name');
-            $table->foreignIdFor(Category::class)->default(0)->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignIdFor(Brand::class)->default(0)->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignIdFor(Category::class)->index()->default(0);
+            $table->foreignIdFor(Brand::class)->index()->default(0);
             $table->string('model')->nullable();
             $table->string('serial_number')->nullable();
             $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->enum('condition', ['good', 'damage'])->default('good');
+            $table->foreignId('created_by')->index()->default(0);
+            $table->foreignId('updated_by')->index()->default(0);
             $table->timestamps();
         });
     }

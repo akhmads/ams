@@ -15,7 +15,8 @@ class CreateAsset extends CreateRecord
         return [
             Action::make('back')
                 ->color('gray')
-                ->url(route('filament.admin.resources.assets.index')),
+                ->icon('heroicon-c-arrow-uturn-left')
+                ->url($this->getResource()::getUrl('index')),
         ];
     }
 

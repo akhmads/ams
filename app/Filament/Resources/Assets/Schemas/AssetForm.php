@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Assets\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Group;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\RichEditor;
@@ -55,6 +55,13 @@ class AssetForm
                         RichEditor::make('description')
                             ->columnSpan(2),
 
+                    ]),
+
+                Section::make()
+                    ->schema([
+                        FileUpload::make('image')
+                            ->image()
+                            ->imageEditor(),
                     ])
             ]);
     }
