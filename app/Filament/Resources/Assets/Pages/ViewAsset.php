@@ -17,11 +17,11 @@ class ViewAsset extends ViewRecord
             Action::make('back')
                 ->label('Back')
                 ->color('gray')
-                ->icon('heroicon-m-arrow-uturn-left')
+                ->icon('heroicon-c-arrow-uturn-left')
                 ->url(route('filament.admin.resources.assets.index')),
 
             EditAction::make()
-                ->icon('heroicon-m-pencil-square'),
+                ->icon('heroicon-c-pencil-square'),
         ];
     }
 }

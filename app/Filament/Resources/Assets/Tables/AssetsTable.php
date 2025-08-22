@@ -10,6 +10,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Enums\RecordActionsPosition;
 
 class AssetsTable
@@ -18,6 +19,7 @@ class AssetsTable
     {
         return $table
             ->columns([
+                ImageColumn::make('image'),
                 TextColumn::make('code')
                     ->searchable(),
                 TextColumn::make('name')
@@ -28,6 +30,8 @@ class AssetsTable
                 TextColumn::make('brand.name')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('condition')
+                    ->badge(),
                 TextColumn::make('model')
                     ->searchable(),
                 TextColumn::make('serial_number')

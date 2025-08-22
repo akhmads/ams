@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Assets\Pages;
 
+use Filament\Actions\Action;
 use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
@@ -15,8 +16,17 @@ class EditAsset extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            ViewAction::make(),
-            DeleteAction::make(),
+            Action::make('back')
+                ->color('gray')
+                ->icon('heroicon-c-arrow-uturn-left')
+                ->url($this->getResource()::getUrl('index')),
+
+            ViewAction::make()
+                ->color('success')
+                ->icon('heroicon-c-eye'),
+
+            DeleteAction::make()
+                ->icon('heroicon-o-trash'),
         ];
     }
 

@@ -18,8 +18,8 @@ enum Condition: string implements HasLabel, HasColor
     public function getColor(): string|array|null
     {
         return match ($this) {
-            self::Good => 'good',
-            self::Damage => 'damage',
+            self::Good => 'success',
+            self::Damage => 'danger',
         };
     }
 }

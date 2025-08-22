@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignIdFor(Brand::class)->index()->default(0);
             $table->string('model')->nullable();
             $table->string('serial_number')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->enum('condition', ['good', 'damage'])->default('good');
             $table->foreignId('created_by')->index()->default(0);
