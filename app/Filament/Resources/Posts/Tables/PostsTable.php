@@ -1,30 +1,26 @@
 <?php
 
-namespace App\Filament\Resources\Categories\Tables;
+namespace App\Filament\Resources\Posts\Tables;
 
-use Filament\Tables\Table;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
-// use Filament\Tables\Enums\PaginationMode;
+use Filament\Tables\Table;
 
-class CategoriesTable
+class PostsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
-            ->deferLoading()
-            ->defaultSort('name','asc')
-            // ->paginationMode(PaginationMode::Simple)
             ->columns([
-                TextColumn::make('name')
-                    ->searchable()
-                    ->sortable(),
+                TextColumn::make('title')
+                    ->searchable(),
                 TextColumn::make('createdBy.name')
-                    ->label('Created By')
+                    ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updatedBy.name')
-                    ->label('Updated By'),
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -37,8 +33,7 @@ class CategoriesTable
                 //
             ])
             ->recordActions([
-                \Filament\Actions\EditAction::make(),
-                \Filament\Actions\DeleteAction::make(),
+                EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

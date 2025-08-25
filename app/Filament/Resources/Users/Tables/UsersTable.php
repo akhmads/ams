@@ -1,44 +1,42 @@
 <?php
 
-namespace App\Filament\Resources\Categories\Tables;
+namespace App\Filament\Resources\Users\Tables;
 
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-// use Filament\Tables\Enums\PaginationMode;
 
-class CategoriesTable
+class UsersTable
 {
     public static function configure(Table $table): Table
     {
         return $table
-            ->deferLoading()
-            ->defaultSort('name','asc')
-            // ->paginationMode(PaginationMode::Simple)
             ->columns([
                 TextColumn::make('name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('createdBy.name')
-                    ->label('Created By')
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updatedBy.name')
-                    ->label('Updated By'),
+                    ->searchable(),
+                TextColumn::make('email')
+                    ->label('Email address')
+                    ->searchable(),
+                IconColumn::make('email_verified_at')
+                    ->label('Email Verified')
+                    ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->dateTime()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                \Filament\Actions\EditAction::make(),
-                \Filament\Actions\DeleteAction::make(),
+                EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
